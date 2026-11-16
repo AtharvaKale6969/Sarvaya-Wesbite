@@ -54,6 +54,17 @@ export const img = {
   waterHands: u('photo-1538300342682-cf57afb97285'),
   waterBottle: u('photo-1740905328339-03ce7edcdc28'),
   waterBottleDark: u('photo-1523362628745-0c100150b504'),
+  // Plastic waste at a landfill (Plastroots: Our Businesses and Sustainability). Premium stock photo from
+  // magnific.com: confirm the licence before launch.
+  plasticLandfill:
+    'https://img.magnific.com/premium-photo/pile-domestic-garbage-landfill-plastic-scrap-landfill-plastic-polyethylene-waste_667565-1626.jpg',
+
+  // Plastroots Foundation focus areas (Sustainability)
+  focusAwareness: u('photo-1524178232363-1fb2b075b655'),
+  focusWaste: u('photo-1532996122724-e3c354a0b15b'),
+  focusWomen: u('photo-1551836022-d5d88e9218df'),
+  focusChildren: u('photo-1497486751825-1233686d5d80'),
+  focusRural: u('photo-1617450365226-9bf28c04e130'),
 
   // Corporate imagery (Home)
   towerNight: u('photo-1542718786-2e81a9d3dfac', 2400),

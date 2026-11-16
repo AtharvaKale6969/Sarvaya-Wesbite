@@ -13,7 +13,7 @@ const highlights = [
   {
     icon: Layers,
     t: 'A diversified portfolio',
-    d: 'Four businesses across waste management, agriculture, renewable energy and biomass, and beverages, balancing exposure across different markets and cycles.',
+    d: 'Four businesses across waste management, agriculture, waste to energy and machinery, and packaged foods and beverages, balancing exposure across different markets and cycles.',
   },
   {
     icon: Landmark,
@@ -293,7 +293,7 @@ export default function Investors() {
               <Reveal key={t} delay={i * 0.06} className="h-full">
                 <Link
                   to="/contact?type=investor"
-                  className="group flex h-full flex-col rounded-[1.5rem] border border-ink/10 bg-white p-7 transition duration-500 hover:-translate-y-1 hover:border-forest/25 hover:shadow-[0_24px_50px_-30px_rgba(14,27,44,0.45)]"
+                  className="group flex h-full flex-col rounded-[1.5rem] border border-ink/10 bg-white p-7 transition duration-500 hover:-translate-y-1 hover:border-forest/25 hover:shadow-[0_24px_50px_-30px_rgba(10,14,13,0.45)]"
                 >
                   <Icon size={22} className="text-forest" strokeWidth={1.6} />
                   <p className="mt-8 font-display text-xl text-ink">{t}</p>
@@ -327,7 +327,7 @@ export default function Investors() {
           <div className="lg:col-span-5">
             <Reveal delay={0.1}>
               <div className="grain relative overflow-hidden rounded-[2rem] bg-forest p-8 text-white md:p-10 lg:sticky lg:top-28">
-                <div className="absolute -top-24 -right-24 h-64 w-64 rounded-full bg-emerald/50 blur-3xl" />
+                <div className="absolute -top-24 -right-24 h-64 w-64 rounded-full bg-saffron/15 blur-3xl" />
                 <Mail size={24} className="relative text-lime" strokeWidth={1.6} />
                 <p className="relative mt-8 font-display text-3xl leading-snug">Investor relations</p>
                 <p className="relative mt-4 leading-relaxed text-white/70">

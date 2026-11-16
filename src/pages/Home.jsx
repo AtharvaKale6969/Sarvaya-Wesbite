@@ -5,10 +5,11 @@ import {
   ArrowUpRight, ArrowRight, ShieldCheck, Compass, HeartHandshake, Lightbulb, TrendingUp, Eye,
   Building2, Layers, Gem, Target, Handshake, BadgeCheck, Users, Leaf, Hourglass,
 } from 'lucide-react'
-import { brand, businesses } from '../data/content'
+import { brand, businesses, foundation } from '../data/content'
 import { img } from '../data/images'
 import { sectorStories } from '../data/sectors'
-import { Button, Layer, Pill, Reveal } from '../components/ui'
+import { BrandRule, Button, Layer, Pill, Reveal } from '../components/ui'
+import LeafPattern from '../components/LeafPattern'
 
 const ease = [0.22, 1, 0.36, 1]
 
@@ -31,7 +32,7 @@ function Hero() {
   }, [])
 
   return (
-    <section ref={ref} className="relative isolate flex min-h-[100svh] items-end overflow-hidden bg-[#070F1A]">
+    <section ref={ref} className="relative isolate flex min-h-[100svh] items-end overflow-hidden bg-[#0A0E0D]">
       <motion.div style={{ y }} className="absolute inset-0 -z-20">
         <AnimatePresence initial={false}>
           <motion.img
@@ -46,8 +47,10 @@ function Hero() {
           />
         </AnimatePresence>
       </motion.div>
-      <div className="absolute inset-0 -z-10 bg-gradient-to-r from-[#070F1A] via-[#070F1A]/80 to-[#070F1A]/20" />
-      <div className="absolute inset-0 -z-10 bg-gradient-to-t from-[#070F1A] via-transparent to-[#070F1A]/50" />
+      <div className="absolute inset-0 -z-10 bg-gradient-to-r from-[#0A0E0D] via-[#0A0E0D]/80 to-[#0A0E0D]/20" />
+      <div className="absolute inset-0 -z-10 bg-gradient-to-t from-[#0A0E0D] via-transparent to-[#0A0E0D]/50" />
+      <div className="pointer-events-none absolute top-[16%] right-[14%] -z-10 h-64 w-64 rounded-full bg-saffron/30 blur-[100px]" />
+      <LeafPattern className="pointer-events-none absolute -right-10 bottom-10 -z-10 hidden h-[480px] w-[480px] text-lime/[0.07] md:block" />
 
       <motion.div style={{ opacity: fade }} className="container-x w-full pt-36 pb-28 md:pb-36">
         <motion.p
@@ -56,7 +59,7 @@ function Hero() {
           transition={{ duration: 0.8, ease }}
           className="eyebrow flex items-center gap-3 text-white/70"
         >
-          <span className="h-px w-10 bg-white/40" /> Sarvaya Holdings Private Limited
+          <BrandRule /> Sarvaya Holdings Private Limited
         </motion.p>
 
         <h1 className="mt-8 font-display text-[2.5rem] leading-[1.02] font-light text-white sm:text-5xl md:text-[4.4rem]">
@@ -144,22 +147,54 @@ function Overview() {
       <div className="container-x">
         <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
           {/* Left: name card */}
-          <div className="lg:col-span-4">
+          <div className="flex flex-col lg:col-span-4">
             <Reveal>
               <Pill>The Sarvaya Group</Pill>
             </Reveal>
-            <Reveal delay={0.05}>
-              <div className="relative mt-8 overflow-hidden rounded-[2rem] bg-forest p-8 text-white shadow-[0_30px_60px_-30px_rgba(14,27,44,0.6)]">
-                <div className="absolute -top-16 -right-16 h-48 w-48 rounded-full bg-emerald/40 blur-3xl" />
-                <p className="relative font-display text-6xl leading-none text-cream">सर्व</p>
-                <p className="relative mt-2 font-display text-xl text-white/70 italic">Sarva</p>
-                <p className="relative mt-5 text-sm leading-relaxed text-white/75">
-                  Sanskrit for <span className="font-semibold text-white">all, everyone and universal</span>. The idea at
-                  the heart of our name.
+            <Reveal delay={0.05} className="mt-8 flex-1">
+              <div className="relative flex h-full flex-col overflow-hidden rounded-[2rem] bg-forest p-8 text-white shadow-[0_30px_60px_-30px_rgba(10,14,13,0.6)]">
+                <div className="absolute -top-16 -right-16 h-48 w-48 rounded-full bg-saffron/15 blur-3xl" />
+                <LeafPattern className="pointer-events-none absolute -right-10 -bottom-10 h-56 w-56 text-white/[0.05]" />
+                <span className="absolute top-8 right-8 h-3 w-3 rounded-full bg-saffron shadow-[0_0_18px_rgba(201,162,77,0.8)]" />
+                <p className="relative eyebrow text-white/50">The meaning of our name</p>
+
+                {/* Word parts */}
+                <div className="relative mt-6 grid grid-cols-[1fr_auto_1fr] items-stretch gap-2">
+                  <div className="flex flex-col items-center justify-center rounded-2xl border border-white/10 bg-white/[0.05] p-4 text-center">
+                    <p className="font-display text-4xl leading-none text-cream">सर्व</p>
+                    <p className="mt-2 font-display text-base text-lime italic">Sarva</p>
+                    <p className="mt-1 text-xs leading-snug text-white/65">all, everyone, universal</p>
+                  </div>
+                  <span className="self-center font-display text-2xl text-white/40">+</span>
+                  <div className="flex flex-col items-center justify-center rounded-2xl border border-white/10 bg-white/[0.05] p-4 text-center">
+                    <p className="font-display text-4xl leading-none text-cream">य</p>
+                    <p className="mt-2 font-display text-base text-lime italic">ya</p>
+                    <p className="mt-1 text-xs leading-snug text-white/65">of, for, belonging to</p>
+                  </div>
+                </div>
+
+                {/* Result */}
+                <div className="relative mt-3 flex items-center gap-3">
+                  <span className="h-px flex-1 bg-white/15" />
+                  <span className="font-display text-xl text-white/40">=</span>
+                  <span className="h-px flex-1 bg-white/15" />
+                </div>
+                <div className="relative mt-3 rounded-2xl border border-lime/30 bg-lime/[0.08] p-5 text-center">
+                  <div className="flex flex-col items-center gap-2">
+                    <p className="font-display text-5xl leading-none text-cream">सर्वाय</p>
+                    <p className="font-display text-xl text-lime italic">Sarvaya</p>
+                  </div>
+                  <p className="mt-3 text-sm font-semibold text-white">For all. Belonging to everyone.</p>
+                </div>
+
+                <p className="relative mt-6 text-sm leading-relaxed text-white/70">
+                  An inclusive outlook at the heart of the group: creating value across businesses, people, communities
+                  and the wider environment.
                 </p>
-                <div className="relative mt-6 flex flex-wrap gap-2">
+
+                <div className="relative mt-auto grid grid-cols-3 gap-2 pt-6">
                   {['Inclusive', 'Universal', 'For everyone'].map((w) => (
-                    <span key={w} className="rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs font-semibold">
+                    <span key={w} className="rounded-full border border-white/20 bg-white/10 px-2 py-1 text-center text-[0.68rem] font-semibold whitespace-nowrap sm:px-3 sm:text-xs">
                       {w}
                     </span>
                   ))}
@@ -179,11 +214,11 @@ function Overview() {
               </p>
             </Reveal>
             <Reveal delay={0.08}>
-              <div className="mt-8 flex flex-wrap gap-2">
+              <div className="mt-8 grid grid-cols-2 gap-2 min-[400px]:grid-cols-3 lg:flex lg:flex-wrap">
                 {tags.map(({ t }) => (
                   <span
                     key={t}
-                    className="inline-flex items-center rounded-full border border-ink/15 px-4 py-2 text-sm font-medium text-ink/75"
+                    className="inline-flex items-center justify-center rounded-full border border-ink/15 px-4 py-2 text-sm font-medium whitespace-nowrap text-ink/75"
                   >
                     {t}
                   </span>
@@ -204,8 +239,8 @@ function Overview() {
                 },
               ].map(({ icon: Icon, t, d }, i) => (
                 <Reveal key={t} delay={0.1 + i * 0.06}>
-                  <div className="group h-full rounded-[1.5rem] border border-ink/10 bg-cream p-7 transition duration-500 hover:-translate-y-1 hover:border-emerald/30 hover:bg-white hover:shadow-[0_24px_50px_-30px_rgba(14,27,44,0.45)]">
-                    <span className="grid h-11 w-11 place-items-center rounded-xl bg-emerald text-white transition group-hover:bg-forest">
+                  <div className="group h-full rounded-[1.5rem] border border-ink/10 bg-cream p-7 transition duration-500 hover:-translate-y-1 hover:border-emerald/30 hover:bg-white hover:shadow-[0_24px_50px_-30px_rgba(10,14,13,0.45)]">
+                    <span className="grid h-11 w-11 place-items-center rounded-xl bg-forest text-saffron transition duration-300 group-hover:bg-saffron group-hover:text-forest">
                       <Icon size={20} />
                     </span>
                     <p className="mt-5 font-display text-2xl text-forest">{t}</p>
@@ -259,8 +294,10 @@ const valuePanels = [
 function Values() {
   const [active, setActive] = useState(0)
   return (
-    <Layer className="z-20 bg-[#070F1A] py-20 text-white md:py-28">
-      <div className="container-x">
+    <Layer className="z-20 overflow-hidden bg-slate-deep py-20 text-white md:py-28">
+      <LeafPattern className="pointer-events-none absolute -left-24 top-10 h-[560px] w-[560px] text-lime/[0.04]" />
+      <div className="pointer-events-none absolute top-0 right-[10%] h-72 w-72 rounded-full bg-saffron/10 blur-[110px]" />
+      <div className="container-x relative">
         <div className="grid gap-10 lg:grid-cols-12 lg:items-end">
           <div className="lg:col-span-7">
             <Reveal>
@@ -283,7 +320,7 @@ function Values() {
         </div>
 
         <Reveal delay={0.1}>
-          <div className="mt-12 flex flex-col gap-3 lg:h-[560px] lg:flex-row">
+          <div className="mt-12 flex flex-col gap-3 lg:h-[35rem] lg:flex-row">
             {valuePanels.map((v, i) => {
               const on = active === i
               const Icon = v.icon
@@ -294,7 +331,7 @@ function Values() {
                   onMouseEnter={() => setActive(i)}
                   aria-expanded={on}
                   className={`group relative overflow-hidden rounded-[1.75rem] text-left transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] ${
-                    on ? 'h-[440px] lg:h-auto lg:flex-[5]' : 'h-[76px] lg:h-auto lg:flex-[1]'
+                    on ? 'h-[27.5rem] lg:h-auto lg:flex-[5]' : 'h-[4.75rem] lg:h-auto lg:flex-[1]'
                   }`}
                 >
                   <img
@@ -308,8 +345,8 @@ function Values() {
                   <div
                     className={`absolute inset-0 transition duration-700 ${
                       on
-                        ? 'bg-gradient-to-t from-[#070F1A] via-[#070F1A]/45 to-[#070F1A]/10'
-                        : 'bg-[#0E1B2C]/80 group-hover:bg-[#0E1B2C]/65'
+                        ? 'bg-gradient-to-t from-[#18222D] via-[#18222D]/45 to-[#18222D]/10'
+                        : 'bg-slate-mid/80 group-hover:bg-slate-mid/65'
                     }`}
                   />
 
@@ -366,7 +403,7 @@ const promises = [
 
 function PromiseSection() {
   return (
-    <Layer className="z-[25] bg-cream py-20 md:py-28">
+    <Layer className="z-[25] bg-slate-tint py-20 md:py-28">
       <div className="container-x">
         <div className="grid gap-8 lg:grid-cols-12 lg:items-end">
           <div className="lg:col-span-7">
@@ -379,6 +416,7 @@ function PromiseSection() {
                 <br />
                 <span className="text-emerald italic">from Sarvaya.</span>
               </h2>
+              <BrandRule className="mt-6" />
             </Reveal>
           </div>
           <Reveal delay={0.1} className="lg:col-span-5">
@@ -389,12 +427,12 @@ function PromiseSection() {
           </Reveal>
         </div>
 
-        <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+        <div className="mt-12 grid gap-4 sm:grid-cols-2 sm:[&>*:last-child]:col-span-2 lg:grid-cols-5 lg:[&>*:last-child]:col-span-1">
           {promises.map(({ to, t, d, icon: Icon }, i) => (
             <Reveal key={to} delay={i * 0.06} className="h-full">
-              <div className="group flex h-full flex-col rounded-[1.5rem] border border-ink/10 bg-white p-7 transition duration-500 hover:-translate-y-1 hover:border-forest/25 hover:shadow-[0_24px_50px_-30px_rgba(14,27,44,0.45)]">
+              <div className="group flex h-full flex-col rounded-[1.5rem] border border-ink/10 bg-white p-7 transition duration-500 hover:-translate-y-1 hover:border-forest/25 hover:shadow-[0_24px_50px_-30px_rgba(10,14,13,0.45)]">
                 <div className="flex items-center justify-between">
-                  <span className="grid h-11 w-11 place-items-center rounded-xl bg-forest text-lime transition group-hover:bg-emerald">
+                  <span className="grid h-11 w-11 place-items-center rounded-xl bg-forest text-lime transition duration-300 group-hover:bg-lime group-hover:text-forest">
                     <Icon size={19} strokeWidth={1.6} />
                   </span>
                   <span className="font-display text-sm text-ink/30">0{i + 1}</span>
@@ -430,11 +468,12 @@ function BusinessIndex() {
                 <br />
                 <span className="text-emerald italic">Shared standards.</span>
               </h2>
+              <BrandRule className="mt-6" />
             </Reveal>
           </div>
           <Reveal delay={0.1} className="lg:col-span-5">
             <p className="text-lg leading-relaxed text-muted">
-              Four businesses operate across waste management, agriculture, renewable energy and biomass, and beverages.
+              Four businesses operate across waste management, agriculture, waste to energy and machinery, and packaged foods and beverages.
               Each has its own identity and expertise, connected by the values of the group.
             </p>
           </Reveal>
@@ -484,9 +523,9 @@ function BusinessIndex() {
                     <div className="md:col-span-5">
                       <p
                         className="flex items-center gap-2 text-sm font-semibold transition-colors"
-                        style={{ color: on ? b.theme.accent : '#0F172A' }}
+                        style={{ color: on ? b.theme.accent : '#141A18' }}
                       >
-                        <span className="h-1.5 w-1.5 shrink-0 rounded-full" style={{ background: on ? b.theme.accent : '#0F172A40' }} />
+                        <span className="h-1.5 w-1.5 shrink-0 rounded-full" style={{ background: on ? b.theme.accent : '#141A1840' }} />
                         {b.name}
                       </p>
                       <p className={`mt-1.5 text-sm transition-colors ${on ? 'text-white/65' : 'text-muted'}`}>{b.tagline}</p>
@@ -521,15 +560,83 @@ function BusinessIndex() {
 /* ------------------------------------------------------------------ */
 /* Statement band                                                      */
 /* ------------------------------------------------------------------ */
+/* ------------------------------------------------------------------ */
+/* Sustainability: Plastroots Foundation (independent non-profit)      */
+/* ------------------------------------------------------------------ */
+function FoundationSection() {
+  const t = foundation.theme
+  return (
+    <Layer className="z-[35] bg-white py-16 md:py-20">
+      <div className="container-x">
+        <Reveal>
+          <div
+            className="grain group relative grid overflow-hidden rounded-[2rem] text-white md:grid-cols-12"
+            style={{ background: t.panel }}
+          >
+            {/* Image sits under one continuous fade, so there is no hard edge between photo and panel */}
+            <div className="relative h-60 overflow-hidden md:absolute md:inset-y-0 md:left-0 md:h-auto md:w-1/2">
+              <img
+                src={img.volunteersBoxes}
+                alt=""
+                loading="lazy"
+                className="absolute inset-0 h-full w-full object-cover transition duration-[1.2s] group-hover:scale-105"
+              />
+              <div
+                className="absolute inset-0 md:hidden"
+                style={{ background: `linear-gradient(to bottom, transparent 40%, ${t.panel})` }}
+              />
+            </div>
+            <div
+              className="pointer-events-none absolute inset-0 hidden md:block"
+              style={{ background: `linear-gradient(to right, transparent 0%, transparent 22%, ${t.panel} 46%, ${t.panel} 100%)` }}
+            />
+
+            {/* Text */}
+            <div className="relative p-8 md:col-span-7 md:col-start-6 md:p-12">
+              <p className="eyebrow" style={{ color: t.accent }}>
+                Sustainability & Social Impact
+              </p>
+              <h2 className="mt-4 font-display text-3xl leading-tight md:text-4xl">Plastroots Foundation</h2>
+              <p className="mt-4 max-w-xl leading-relaxed text-white/75">
+                An independent Section 8 non-profit carrying forward the Sarvaya Group’s philanthropic work, for
+                cleaner villages and stronger communities.
+              </p>
+              <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3">
+                <a
+                  href={foundation.url}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="group/link inline-flex items-center gap-2 rounded-full px-5 py-3 text-sm font-semibold whitespace-nowrap transition hover:brightness-110"
+                  style={{ background: t.accent, color: t.onAccent }}
+                >
+                  Visit the Foundation
+                  <ArrowUpRight size={16} className="transition group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5" />
+                </a>
+                <Link
+                  to="/sustainability#foundation"
+                  className="inline-flex items-center gap-2 text-sm font-semibold text-white/80 transition hover:text-white"
+                >
+                  Learn more <ArrowRight size={15} />
+                </Link>
+              </div>
+            </div>
+          </div>
+        </Reveal>
+      </div>
+    </Layer>
+  )
+}
+
 function Statement() {
   const ref = useRef(null)
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start end', 'end start'] })
   const y = useTransform(scrollYProgress, [0, 1], ['-10%', '10%'])
   return (
-    <Layer className="z-40 bg-[#070F1A]">
+    <Layer className="z-40 bg-[#0A0E0D]">
       <div ref={ref} className="relative isolate overflow-hidden rounded-t-[2.5rem] py-32 md:rounded-t-[3rem] md:py-44">
         <motion.img style={{ y }} src={img.seaLinkPylons} alt="" className="absolute inset-0 -z-20 h-[125%] w-full object-cover" />
-        <div className="absolute inset-0 -z-10 bg-gradient-to-r from-[#070F1A]/90 via-[#070F1A]/65 to-[#070F1A]/40" />
+        <div className="absolute inset-0 -z-10 bg-gradient-to-r from-[#0A0E0D]/90 via-[#0A0E0D]/65 to-[#0A0E0D]/40" />
+        <LeafPattern className="pointer-events-none absolute right-6 bottom-0 -z-10 hidden h-80 w-80 text-lime/[0.08] md:block" />
         <div className="container-x">
           <Reveal>
             <p className="max-w-5xl font-display text-3xl leading-tight font-light text-white text-balance md:text-5xl">
@@ -562,14 +669,14 @@ function Explore() {
         <div className="mt-10 grid gap-5 md:grid-cols-3">
           {explore.map((e, i) => (
             <Reveal key={e.to} delay={i * 0.08}>
-              <Link to={e.to} className="group relative block h-[400px] overflow-hidden rounded-[1.75rem] bg-[#070F1A]">
+              <Link to={e.to} className="group relative block h-[25rem] overflow-hidden rounded-[1.75rem] bg-[#0A0E0D]">
                 <img
                   src={e.image}
                   alt=""
                   loading="lazy"
                   className="absolute inset-0 h-full w-full object-cover opacity-75 transition duration-[1.2s] group-hover:scale-105 group-hover:opacity-60"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#070F1A] via-[#070F1A]/30 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0A0E0D] via-[#0A0E0D]/30 to-transparent" />
                 <div className="absolute inset-x-0 bottom-0 p-8">
                   <p className="eyebrow text-white/60">{e.label}</p>
                   <p className="mt-3 font-display text-2xl leading-snug text-white">{e.t}</p>
@@ -594,6 +701,7 @@ export default function Home() {
       <Values />
       <PromiseSection />
       <BusinessIndex />
+      <FoundationSection />
       <Statement />
       <Explore />
     </>

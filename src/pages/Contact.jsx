@@ -3,7 +3,7 @@ import { useSearchParams } from 'react-router-dom'
 import { AnimatePresence, motion } from 'framer-motion'
 import { MapPin, Phone, Mail, Send, CheckCircle2, ArrowUpRight } from 'lucide-react'
 import { img } from '../data/images'
-import { businesses } from '../data/content'
+import { brand, businesses } from '../data/content'
 import { PageHero, Reveal, SectionHeading } from '../components/ui'
 
 const enquiryTypes = ['General enquiry', 'Business partnership', 'Investor relations', 'Media', 'Careers', 'CSR & sustainability', 'Other']
@@ -45,22 +45,33 @@ export default function Contact() {
       />
 
       <section className="py-24 md:py-32">
-        <div className="container-x grid gap-12 lg:grid-cols-12">
-          {/* Left: details */}
-          <div className="lg:col-span-5">
-            <SectionHeading
-              eyebrow="Connect with Sarvaya"
-              title="We value open communication."
-              intro="We aim to direct every enquiry to the appropriate team. For corporate communication, group-level enquiries and general information:"
-            />
+        <div className="container-x">
+          <SectionHeading
+            eyebrow="Connect with Sarvaya"
+            title="We value open communication."
+            intro="We aim to direct every enquiry to the appropriate team. For corporate communication, group-level enquiries and general information:"
+          />
+        </div>
+        <div className="container-x mt-12 grid gap-6 lg:grid-cols-12 lg:grid-rows-[auto_1fr] lg:gap-x-12 lg:gap-y-6">
+          {/* Details: top left */}
+          <div className="lg:col-span-5 lg:col-start-1 lg:row-start-1">
             <Reveal delay={0.1}>
-              <ul className="mt-10 space-y-3">
+              <ul className="space-y-3">
                 {[
-                  { i: MapPin, t: 'Corporate address', v: '[Corporate address]' },
-                  { i: Phone, t: 'Phone', v: '[Official phone number]' },
-                  { i: Mail, t: 'Email', v: '[Corporate email address]' },
-                ].map(({ i: Icon, t, v }) => (
-                  <li key={t} className="flex items-center gap-4 rounded-2xl bg-white p-5">
+                  { i: MapPin, t: 'Corporate address', v: brand.address.join(' '), href: brand.mapsHref },
+                  { i: Phone, t: 'Office phone', v: brand.phone, href: brand.phoneHref },
+                  { i: Mail, t: 'Email', v: brand.email },
+                ].map(({ i: Icon, t, v, href }) => (
+                  <li key={t} className="relative flex items-center gap-4 rounded-2xl bg-white p-5">
+                    {href && (
+                      <a
+                        href={href}
+                        target={href.startsWith('http') ? '_blank' : undefined}
+                        rel="noreferrer"
+                        aria-label={`${t}: ${v}`}
+                        className="absolute inset-0 rounded-2xl ring-forest/20 transition hover:ring-2"
+                      />
+                    )}
                     <span className="grid h-12 w-12 shrink-0 place-items-center rounded-xl bg-forest text-lime">
                       <Icon size={20} />
                     </span>
@@ -72,37 +83,12 @@ export default function Contact() {
                 ))}
               </ul>
             </Reveal>
-
-            <Reveal delay={0.15}>
-              <p className="mt-12 eyebrow text-emerald">Business enquiries</p>
-              <ul className="mt-5 divide-y divide-forest/10 rounded-2xl border border-forest/10 bg-white">
-                {businesses.map((b) => (
-                  <li key={b.slug} className="flex items-start justify-between gap-4 p-5">
-                    <span>
-                      <span className="flex items-center gap-2 font-semibold text-forest">
-                        <span className="h-2 w-2 rounded-full" style={{ background: b.accent }} /> {b.name}
-                      </span>
-                      <span className="mt-1 block pl-4 text-sm text-muted">[Contact details]</span>
-                    </span>
-                    <a
-                      href={b.url}
-                      target="_blank"
-                      rel="noreferrer"
-                      aria-label={`Visit ${b.name} website`}
-                      className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-cream text-forest transition hover:bg-forest hover:text-white"
-                    >
-                      <ArrowUpRight size={16} />
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </Reveal>
           </div>
 
-          {/* Right: form */}
-          <div className="lg:col-span-7">
-            <Reveal y={40}>
-              <div className="relative overflow-hidden rounded-[2.5rem] bg-white p-8 shadow-[0_40px_100px_-50px_rgba(14,27,44,0.45)] md:p-12">
+          {/* Form: right, spanning both rows (second on phones, straight after the details) */}
+          <div className="lg:col-span-7 lg:col-start-6 lg:row-span-2 lg:row-start-1">
+            <Reveal y={40} className="h-full">
+              <div className="relative h-full overflow-hidden rounded-[2.5rem] bg-white p-8 shadow-[0_40px_100px_-50px_rgba(10,14,13,0.45)] md:p-12">
                 <div className="absolute -right-20 -top-20 h-56 w-56 rounded-full bg-lime/20 blur-3xl" />
                 <AnimatePresence mode="wait">
                   {sent ? (
@@ -110,7 +96,7 @@ export default function Contact() {
                       key="done"
                       initial={{ opacity: 0, scale: 0.96 }}
                       animate={{ opacity: 1, scale: 1 }}
-                      className="relative flex min-h-[520px] flex-col items-center justify-center text-center"
+                      className="relative flex min-h-[32.5rem] flex-col items-center justify-center text-center"
                     >
                       <CheckCircle2 size={56} className="text-emerald" />
                       <p className="mt-6 font-display text-3xl text-forest">Thank you for reaching out.</p>
@@ -176,7 +162,7 @@ export default function Contact() {
                       </div>
                       <button
                         type="submit"
-                        className="group mt-8 inline-flex items-center gap-2 rounded-full bg-emerald px-8 py-4 text-sm font-semibold text-white shadow-[0_10px_30px_-10px_rgba(14,27,44,0.6)] transition hover:bg-forest"
+                        className="group mt-8 inline-flex items-center gap-2 rounded-full bg-forest px-8 py-4 text-sm font-semibold text-white shadow-[0_10px_30px_-10px_rgba(10,14,13,0.6)] transition hover:bg-emerald"
                       >
                         Send enquiry
                         <Send size={16} className="transition group-hover:translate-x-0.5" />
@@ -184,6 +170,21 @@ export default function Contact() {
                     </motion.form>
                   )}
                 </AnimatePresence>
+              </div>
+            </Reveal>
+          </div>
+
+          {/* Map: bottom left, filling the space beside the form (last on phones) */}
+          <div className="lg:col-span-5 lg:col-start-1 lg:row-start-2">
+            <Reveal delay={0.15} className="h-full">
+              <div className="h-full overflow-hidden rounded-[1.75rem] border border-forest/10 bg-white">
+                <iframe
+                  title="Sarvaya Holdings office location"
+                  src={brand.mapsEmbed}
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  className="block h-64 w-full border-0 grayscale-[35%] sm:h-80 lg:h-full lg:min-h-[14rem]"
+                />
               </div>
             </Reveal>
           </div>

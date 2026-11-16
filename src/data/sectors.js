@@ -3,6 +3,7 @@ import {
   Coins, Mountain, MapPinned, Apple, Sprout, ClipboardList,
   CloudFog, Wrench, FileSearch, Leaf, Fuel, Cog,
   Droplets, ShieldCheck, MapPin, TrendingUp, Repeat, ShoppingBag,
+  Megaphone, UserRound, Stethoscope, House, RotateCcw, Recycle,
 } from 'lucide-react'
 import { img } from './images'
 
@@ -44,7 +45,7 @@ export const sectorStories = {
       ],
     },
     pullQuote: 'Waste is only waste when we stop managing it.',
-    company: img.plastroots,
+    company: img.plasticLandfill,
     about: [
       'Plastroots Waste Management & Solutions Private Limited is the Sarvaya Group’s business in waste management, working to move industry from landfill dependency towards a circular economy.',
       'Through EPR compliance, industrial scrap recovery and the production of alternative fuel, the company supplies manufacturing industries with recycled granules and cement kilns with Refuse Derived Fuel (RDF).',
@@ -133,7 +134,7 @@ export const sectorStories = {
     pullQuote: 'Cleaner energy is a choice we make, project by project.',
     company: img.windHills,
     about: [
-      'Geoclaim Energy Private Limited is the Sarvaya Group’s business in renewable energy and biomass, focused on transforming waste into clean fuels and renewable energy.',
+      'Geoclaim Energy Private Limited is the Sarvaya Group’s business in waste to energy and plant machinery, focused on transforming waste into clean fuels and renewable energy.',
       'The company works with industries, government bodies and institutions, using waste-to-energy approaches to bridge the gap between the waste businesses produce and the renewable, sustainable energy they need.',
     ],
     focus: [
@@ -176,13 +177,58 @@ export const sectorStories = {
     pullQuote: 'Purity you can see, in every bottle.',
     company: img.waterBottle,
     about: [
-      'Aayuneer Enterprises is the Sarvaya Group’s business in beverages. Its consumer brand, Flowup Drinks, is a premium hydration brand committed to delivering pure, safe and refreshing drinking water.',
+      'Aayuneer Enterprises is the Sarvaya Group’s business in packaged foods and beverages. Its consumer brand, Flowup Drinks, is a premium hydration brand committed to delivering pure, safe and refreshing drinking water.',
       'With its flagship bottled water, Flowup focuses on quality, trust and customer satisfaction. It currently serves a 200 km radius around its headquarters in Nagpur, Maharashtra, so every bottle reaches customers at peak freshness.',
     ],
     focus: [
       { icon: Droplets, t: 'Packaged drinking water', d: 'Pure, safe drinking water with a crystal clear taste.' },
       { icon: ShieldCheck, t: 'Premium bottle design', d: 'Crush-resistant, BPA-free, double-sealed and 100% recyclable.' },
       { icon: MapPin, t: 'Local distribution', d: 'A dedicated 200 km service area around Nagpur, Maharashtra.' },
+    ],
+  },
+
+  philanthropy: {
+    opener: img.volunteer,
+    hook: 'Change starts at the grassroots.',
+    landscape: {
+      lead: 'Consumption is reaching rural India faster than the systems needed to manage its waste.',
+      body: [
+        'Across many villages, unmanaged plastic waste is building up in fields, soil and water sources. Local bodies often work without the resources they need, and awareness of sustainable practices remains limited.',
+        'The challenge is not only environmental. Women, the backbone of many rural households, frequently lack financial independence, and access to health, hygiene and education is still out of reach for many families.',
+      ],
+    },
+    gallery: [img.kids, img.handsPlant],
+    challenge: {
+      intro: 'Lasting change in rural communities depends on closing gaps that are environmental and social at the same time.',
+      items: [
+        { icon: Layers, t: 'Waste outpacing infrastructure', d: 'Waste is growing faster than the collection and processing systems available to rural local bodies.' },
+        { icon: Megaphone, t: 'Gaps in awareness', d: 'Without grassroots education, communities have little support to adopt sustainable everyday practices.' },
+        { icon: UserRound, t: 'Barriers for women and families', d: 'Limited livelihood opportunities and access to health and education hold back entire communities.' },
+      ],
+    },
+    wayForward: {
+      label: 'The Foundation’s approach',
+      intro: 'The Foundation works with schools, corporate partners and local governments to turn awareness into action on the ground.',
+      steps: [
+        { t: 'Educate and engage', d: 'Awareness programmes that help people make informed, responsible choices.' },
+        { t: 'Manage waste responsibly', d: 'Collection, segregation and processing that keep waste out of the environment.' },
+        { t: 'Create livelihoods', d: 'Skill development and dignified employment for women.' },
+        { t: 'Strengthen communities', d: 'Health, education and development initiatives with local bodies.' },
+      ],
+    },
+    pullQuote: 'We are not just cleaning the earth. We are breathing life back into the communities that rely on it.',
+    company: img.volunteersBoxes,
+    about: [
+      'Plastroots Foundation is an independently registered Section 8 non-profit organisation. It maintains its own identity and carries forward the philanthropic and social-development work of the Sarvaya Group.',
+      'Committed to sustainable villages and cleaner, greener communities, the Foundation promotes responsible waste management and environmental awareness, and connects local bodies with rural communities to advance women’s empowerment, health and education.',
+    ],
+    focus: [
+      { icon: Megaphone, image: img.focusAwareness, t: 'Awareness through IEC', d: 'Information, education and communication for informed, impactful choices.' },
+      { icon: Recycle, image: img.focusWaste, t: 'Waste management', d: 'Responsible waste collection, segregation and processing.' },
+      { icon: RotateCcw, image: img.handsPlant, t: 'Sustainability', d: 'A circular economy where resources are reused and recycled.' },
+      { icon: UserRound, image: img.focusWomen, t: 'Empowering women', d: 'Skill development and formal employment for a dignified livelihood.' },
+      { icon: Stethoscope, image: img.focusChildren, t: 'Health & education for all', d: 'Hygiene initiatives, health camps and education programmes.' },
+      { icon: House, image: img.focusRural, t: 'Rural area development', d: 'Inclusive growth that bridges local bodies and rural communities.' },
     ],
   },
 }

@@ -8,12 +8,19 @@ import { useEffect } from 'react'
   Uses non-breaking spaces on rendered text nodes and re-applies when React updates the DOM.
 */
 const NBSP = ' '
-const SKIP = new Set(['SCRIPT', 'STYLE', 'TEXTAREA', 'INPUT', 'OPTION', 'SELECT', 'NOSCRIPT', 'CODE'])
+// Headings are skipped: they balance their own lines, and large type can't fit long unbreakable chunks on phones.
+const SKIP = new Set(['SCRIPT', 'STYLE', 'TEXTAREA', 'INPUT', 'OPTION', 'SELECT', 'NOSCRIPT', 'CODE', 'H1', 'H2', 'H3'])
 const BLOCKS = new Set(['P', 'H1', 'H2', 'H3', 'H4', 'LI', 'BLOCKQUOTE', 'FIGCAPTION', 'DD', 'DT'])
 
-function setText(text, isLast) {
-  // Only glue words inside the same sentence, never across a full stop.
-  let out = text.replace(/([.!?:;]["”’)]?)\s+([^\s.!?]+)\s+([^\s.!?]+)\s+(?=\S)/g, `$1 $2${NBSP}$3${NBSP}`)
+function setText(text, isLast, justified) {
+  let out
+  if (justified) {
+    // Justified paragraphs: bind only the first two words of a sentence, so word spacing stays even.
+    out = text.replace(/ /g, ' ').replace(/([.!?:;]["”’)]?)\s+([^\s.!?]+)\s+(?=\S)/g, `$1 $2${NBSP}`)
+  } else {
+    // Only glue words inside the same sentence, never across a full stop.
+    out = text.replace(/([.!?:;]["”’)]?)\s+([^\s.!?]+)\s+([^\s.!?]+)\s+(?=\S)/g, `$1 $2${NBSP}$3${NBSP}`)
+  }
   if (isLast) out = out.replace(/\s+(\S+)\s*$/, `${NBSP}$1`)
   return out
 }
@@ -27,6 +34,17 @@ function isLastText(node) {
   return !!n
 }
 
+// Justify only long body paragraphs whose lines are wide enough to avoid gappy word spacing.
+const MIN_EM = 36
+function markJustified(root) {
+  root.querySelectorAll('p.text-lg').forEach((p) => {
+    if (p.closest('.text-center')) return
+    const size = parseFloat(getComputedStyle(p).fontSize) || 16
+    const wide = p.clientWidth / size >= MIN_EM && p.textContent.length > 160
+    p.classList.toggle('is-justified', wide)
+  })
+}
+
 function process(root) {
   const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
     acceptNode: (node) => {
@@ -37,10 +55,12 @@ function process(root) {
       return NodeFilter.FILTER_ACCEPT
     },
   })
+  markJustified(root)
   const nodes = []
   while (walker.nextNode()) nodes.push(walker.currentNode)
   nodes.forEach((node) => {
-    const next = setText(node.nodeValue, isLastText(node))
+    const justified = !!node.parentElement?.closest('p.is-justified')
+    const next = setText(node.nodeValue, isLastText(node), justified)
     if (next !== node.nodeValue) node.nodeValue = next
   })
 }
@@ -55,7 +75,9 @@ export default function TypeSetter() {
     run()
     const mo = new MutationObserver(run)
     mo.observe(document.body, { childList: true, subtree: true, characterData: true })
+    window.addEventListener('resize', run)
     return () => {
+      window.removeEventListener('resize', run)
       mo.disconnect()
       cancelAnimationFrame(frame)
     }

@@ -41,10 +41,10 @@ export default function Navbar() {
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
+      className={`fixed inset-x-0 top-0 z-[100] transition-all duration-500 ${
         overHero
           ? 'bg-gradient-to-b from-forest-950/60 to-transparent py-5'
-          : 'border-b border-forest/10 bg-cream/90 py-3 shadow-[0_8px_30px_-12px_rgba(14,27,44,0.25)] backdrop-blur-xl'
+          : 'border-b border-forest/10 bg-white/90 py-3 shadow-[0_8px_30px_-12px_rgba(10,14,13,0.25)] backdrop-blur-xl'
       }`}
     >
       <nav className="container-x flex items-center justify-between gap-6">

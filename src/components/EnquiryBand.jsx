@@ -17,7 +17,7 @@ export default function EnquiryBand() {
     <section className="grain relative isolate overflow-hidden bg-forest-950 py-28 text-white md:py-36">
       <img src={img.meetingTable} alt="" className="absolute inset-0 -z-20 h-full w-full object-cover opacity-[0.12]" />
       <div className="absolute inset-0 -z-10 bg-gradient-to-br from-forest-950 via-forest-950/95 to-forest/80" />
-      <div className="absolute -top-40 right-0 -z-10 h-[34rem] w-[34rem] rounded-full bg-emerald/25 blur-3xl" />
+      <div className="absolute -top-40 right-0 -z-10 h-[34rem] w-[34rem] rounded-full bg-saffron/10 blur-3xl" />
       <div className="absolute -bottom-40 left-1/4 -z-10 h-[26rem] w-[26rem] rounded-full bg-saffron/10 blur-3xl" />
       <LeafPattern className="pointer-events-none absolute -left-24 bottom-0 -z-10 h-[480px] w-[480px] text-white/[0.03]" />
 

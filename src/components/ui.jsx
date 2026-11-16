@@ -31,8 +31,20 @@ export function Pill({ children, tone = 'light', className = '' }) {
     <span
       className={`inline-flex items-center gap-2 rounded-full border px-4 py-1.5 text-[0.7rem] font-bold tracking-[0.18em] uppercase ${tones[tone]} ${className}`}
     >
-      <span className={`h-1.5 w-1.5 rounded-full ${tone === 'dark' ? 'bg-lime' : 'bg-emerald'}`} />
+      <span className="h-1.5 w-1.5 rounded-full bg-saffron shadow-[0_0_8px_rgba(201,162,77,0.7)]" />
       {children}
+    </span>
+  )
+}
+
+// Thin rule built from the logo's colours: deep leaf, light leaf, water, sun.
+export function BrandRule({ className = '' }) {
+  return (
+    <span className={`inline-flex items-center gap-1.5 ${className}`} aria-hidden="true">
+      <span className="h-[2px] w-10 rounded-full bg-saffron" />
+      <span className="h-[2px] w-6 rounded-full bg-saffron/60" />
+      <span className="h-[2px] w-4 rounded-full bg-saffron/30" />
+      <span className="h-1.5 w-1.5 rounded-full bg-saffron" />
     </span>
   )
 }
@@ -95,7 +107,7 @@ export function SectionHeading({ eyebrow, title, intro, light = false, center = 
 
 export function Button({ to, href, children, variant = 'primary', className = '' }) {
   const styles = {
-    primary: 'bg-forest text-white hover:bg-emerald shadow-[0_10px_30px_-12px_rgba(14,27,44,0.6)]',
+    primary: 'bg-forest text-white hover:bg-emerald shadow-[0_10px_30px_-12px_rgba(10,14,13,0.6)]',
     light: 'bg-white text-forest hover:bg-lime',
     ghost: 'border border-white/40 text-white hover:bg-white hover:text-forest',
     outline: 'border border-forest/25 text-forest hover:border-forest hover:bg-forest hover:text-white',
@@ -196,7 +208,7 @@ export function CtaBand({ title, text, primary, secondary }) {
     <section className="container-x py-24">
       <Reveal>
         <div className="grain relative overflow-hidden rounded-[2.5rem] bg-forest px-8 py-16 md:px-16 md:py-20">
-          <div className="absolute -right-24 -top-24 h-80 w-80 rounded-full bg-emerald/60 blur-3xl" />
+          <div className="absolute -right-24 -top-24 h-80 w-80 rounded-full bg-saffron/15 blur-3xl" />
           <div className="absolute -bottom-32 left-1/3 h-72 w-72 rounded-full bg-sky/25 blur-3xl" />
           <LeafPattern className="absolute -bottom-10 right-6 h-72 w-72 text-white/[0.06]" />
           <div className="relative max-w-2xl">
