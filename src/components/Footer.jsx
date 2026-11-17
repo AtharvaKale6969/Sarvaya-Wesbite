@@ -2,7 +2,6 @@ import { Link } from 'react-router-dom'
 import { ArrowUp, ArrowUpRight, Mail, MapPin, Phone } from 'lucide-react'
 import { Logo } from './Navbar'
 import { brand, businesses, foundation, navLinks } from '../data/content'
-import LeafPattern from './LeafPattern'
 
 /*
   Group footer, kept compact. It takes the page's theme, so its colours follow whichever page it sits under.
@@ -16,7 +15,6 @@ const Heading = ({ children }) => <p className="eyebrow text-white/40">{children
 export default function Footer({ theme }) {
   return (
     <footer className="grain relative overflow-hidden bg-forest-950 text-white transition-colors duration-500" style={theme}>
-      <LeafPattern className="pointer-events-none absolute -top-24 -right-24 h-[26rem] w-[26rem] text-white/[0.035]" />
 
       <div className="container-x relative grid gap-7 pt-10 pb-7 sm:grid-cols-2 sm:gap-9 md:pt-14 lg:grid-cols-12 lg:gap-10">
         {/* Brand and contact */}

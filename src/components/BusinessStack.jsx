@@ -1,7 +1,6 @@
 import { useRef } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { ArrowUpRight } from 'lucide-react'
-import LeafPattern from './LeafPattern'
 
 /*
   Our Businesses: each company is one self-contained card. On large screens the cards pin and
@@ -27,10 +26,6 @@ function Card({ b, s, i, total, progress }) {
           style={{ scale, background: t.panel }}
           className="grain relative origin-top overflow-hidden rounded-[2rem] text-white shadow-[0_-20px_60px_-30px_rgba(0,0,0,0.45)] md:rounded-[2.5rem] lg:h-[calc(100vh-9rem)] lg:max-h-[700px] lg:min-h-[560px]"
         >
-          <LeafPattern
-            className="pointer-events-none absolute -bottom-24 left-[40%] h-[440px] w-[440px]"
-            style={{ color: t.accent, opacity: 0.06 }}
-          />
           <div
             className="pointer-events-none absolute -top-40 -left-40 h-[26rem] w-[26rem] rounded-full blur-3xl"
             style={{ background: t.accent, opacity: 0.14 }}

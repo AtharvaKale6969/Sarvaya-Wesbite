@@ -9,7 +9,6 @@ import { brand, businesses, foundation } from '../data/content'
 import { img } from '../data/images'
 import { sectorStories } from '../data/sectors'
 import { BrandRule, Button, Layer, Pill, Reveal } from '../components/ui'
-import LeafPattern from '../components/LeafPattern'
 
 const ease = [0.22, 1, 0.36, 1]
 
@@ -50,7 +49,6 @@ function Hero() {
       <div className="absolute inset-0 -z-10 bg-gradient-to-r from-[#0A0E0D] via-[#0A0E0D]/80 to-[#0A0E0D]/20" />
       <div className="absolute inset-0 -z-10 bg-gradient-to-t from-[#0A0E0D] via-transparent to-[#0A0E0D]/50" />
       <div className="pointer-events-none absolute top-[16%] right-[14%] -z-10 h-64 w-64 rounded-full bg-saffron/30 blur-[100px]" />
-      <LeafPattern className="pointer-events-none absolute -right-10 bottom-10 -z-10 hidden h-[480px] w-[480px] text-lime/[0.07] md:block" />
 
       <motion.div style={{ opacity: fade }} className="container-x w-full pt-36 pb-28 md:pb-36">
         <motion.p
@@ -154,7 +152,6 @@ function Overview() {
             <Reveal delay={0.05} className="mt-8 flex-1">
               <div className="relative flex h-full flex-col overflow-hidden rounded-[2rem] bg-forest p-8 text-white shadow-[0_30px_60px_-30px_rgba(10,14,13,0.6)]">
                 <div className="absolute -top-16 -right-16 h-48 w-48 rounded-full bg-saffron/15 blur-3xl" />
-                <LeafPattern className="pointer-events-none absolute -right-10 -bottom-10 h-56 w-56 text-white/[0.05]" />
                 <span className="absolute top-8 right-8 h-3 w-3 rounded-full bg-saffron shadow-[0_0_18px_rgba(201,162,77,0.8)]" />
                 <p className="relative eyebrow text-white/50">The meaning of our name</p>
 
@@ -250,12 +247,20 @@ function Overview() {
               ))}
             </div>
             <Reveal delay={0.15}>
-              <Link
-                to="/about"
-                className="group mt-8 inline-flex items-center gap-2 rounded-full bg-forest px-6 py-3 text-sm font-semibold text-white transition hover:bg-emerald"
-              >
-                About the group <ArrowRight size={16} className="transition group-hover:translate-x-1" />
-              </Link>
+              <div className="mt-8 flex flex-col gap-5 border-t border-ink/10 pt-7 sm:flex-row sm:items-center sm:justify-between">
+                <p className="max-w-sm leading-relaxed text-muted">
+                  Our story, leadership and the values that guide every business.
+                </p>
+                <Link
+                  to="/about"
+                  className="group inline-flex shrink-0 items-center justify-center gap-3 rounded-full bg-forest py-2 pr-2 pl-7 text-[0.95rem] font-semibold text-white transition hover:bg-forest-950"
+                >
+                  About the group
+                  <span className="grid h-10 w-10 place-items-center rounded-full bg-saffron text-forest-950 transition duration-300 group-hover:translate-x-0.5">
+                    <ArrowRight size={17} />
+                  </span>
+                </Link>
+              </div>
             </Reveal>
           </div>
         </div>
@@ -295,7 +300,6 @@ function Values() {
   const [active, setActive] = useState(0)
   return (
     <Layer className="z-20 overflow-hidden bg-slate-deep py-20 text-white md:py-28">
-      <LeafPattern className="pointer-events-none absolute -left-24 top-10 h-[560px] w-[560px] text-lime/[0.04]" />
       <div className="pointer-events-none absolute top-0 right-[10%] h-72 w-72 rounded-full bg-saffron/10 blur-[110px]" />
       <div className="container-x relative">
         <div className="grid gap-10 lg:grid-cols-12 lg:items-end">
@@ -636,7 +640,6 @@ function Statement() {
       <div ref={ref} className="relative isolate overflow-hidden rounded-t-[2.5rem] py-32 md:rounded-t-[3rem] md:py-44">
         <motion.img style={{ y }} src={img.seaLinkPylons} alt="" className="absolute inset-0 -z-20 h-[125%] w-full object-cover" />
         <div className="absolute inset-0 -z-10 bg-gradient-to-r from-[#0A0E0D]/90 via-[#0A0E0D]/65 to-[#0A0E0D]/40" />
-        <LeafPattern className="pointer-events-none absolute right-6 bottom-0 -z-10 hidden h-80 w-80 text-lime/[0.08] md:block" />
         <div className="container-x">
           <Reveal>
             <p className="max-w-5xl font-display text-3xl leading-tight font-light text-white text-balance md:text-5xl">

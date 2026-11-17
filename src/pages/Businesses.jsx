@@ -6,7 +6,7 @@ import { businesses, companyLogos } from '../data/content'
 import { sectorStories } from '../data/sectors'
 import { img } from '../data/images'
 import { Eyebrow, PageHero, Reveal } from '../components/ui'
-import GroupChain from '../components/GroupChain'
+import GroupStrengths from '../components/GroupStrengths'
 
 /*
   Our Businesses, in the manner of the large Indian group sites (Tata, Aditya Birla, Mahindra, Adani):
@@ -116,7 +116,7 @@ function Mosaic() {
 
                 <div className="absolute inset-x-0 bottom-0 p-6 md:p-8">
                   <p className="text-xs font-bold tracking-[0.16em] text-lime uppercase">{b.sector}</p>
-                  <p className="mt-3 font-display text-2xl leading-tight md:text-[2rem]">{b.short}</p>
+                  <p className="mt-3 max-w-lg font-display text-[1.35rem] leading-snug text-balance md:text-[1.65rem]">{b.name}</p>
                   {/* Purpose line slides open on hover */}
                   <div className="grid grid-rows-[0fr] transition-[grid-template-rows] duration-700 ease-out group-hover:grid-rows-[1fr] max-lg:grid-rows-[1fr]">
                     <div className="overflow-hidden">
@@ -275,7 +275,7 @@ export default function Businesses() {
       <Overview />
       <Mosaic />
       <Profiles />
-      <GroupChain />
+      <GroupStrengths />
     </>
   )
 }

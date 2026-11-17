@@ -2,7 +2,6 @@ import { useRef } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { ArrowRight, ArrowUpRight, Clock } from 'lucide-react'
-import LeafPattern from './LeafPattern'
 
 const ease = [0.22, 1, 0.36, 1]
 
@@ -144,7 +143,6 @@ export function PageHero({ eyebrow, title, intro, image, children }) {
       />
       <div className="absolute inset-0 -z-10 bg-gradient-to-t from-forest-950 via-forest-950/70 to-forest-950/30" />
       <div className="absolute inset-0 -z-10 bg-gradient-to-r from-forest-950/80 to-transparent" />
-      <LeafPattern className="pointer-events-none absolute -right-20 bottom-0 -z-10 h-[460px] w-[460px] text-lime/[0.06]" />
       <div className="container-x w-full">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -210,7 +208,6 @@ export function CtaBand({ title, text, primary, secondary }) {
         <div className="grain relative overflow-hidden rounded-[2.5rem] bg-forest px-8 py-16 md:px-16 md:py-20">
           <div className="absolute -right-24 -top-24 h-80 w-80 rounded-full bg-saffron/15 blur-3xl" />
           <div className="absolute -bottom-32 left-1/3 h-72 w-72 rounded-full bg-sky/25 blur-3xl" />
-          <LeafPattern className="absolute -bottom-10 right-6 h-72 w-72 text-white/[0.06]" />
           <div className="relative max-w-2xl">
             <h3 className="font-display text-3xl leading-tight font-light text-white md:text-4xl">{title}</h3>
             {text && <p className="mt-5 text-lg leading-relaxed text-white/70">{text}</p>}

@@ -2,7 +2,6 @@ import { useRef } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { ArrowUpRight, Info } from 'lucide-react'
 import { Reveal } from './ui'
-import LeafPattern from './LeafPattern'
 
 // Gentle parallax: the element drifts `range` px across its own pass through the viewport.
 function useDrift(ref, range = 60) {
@@ -60,10 +59,6 @@ function CompanyFeature({ b, s, t, index }) {
 
   return (
     <div ref={ref} className="grain relative overflow-hidden text-white" style={{ background: t.panel }}>
-      <LeafPattern
-        className="pointer-events-none absolute -bottom-24 left-[35%] h-[520px] w-[520px]"
-        style={{ color: t.accent, opacity: 0.06 }}
-      />
       <div className="absolute -top-40 -left-40 h-[28rem] w-[28rem] rounded-full blur-3xl" style={{ background: t.accent, opacity: 0.16 }} />
 
       <div className="relative grid lg:grid-cols-2">

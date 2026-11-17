@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import {
-  Sparkles, GraduationCap, Handshake, TrendingUp, Search, MapPin, Briefcase, ArrowUpRight, Compass, FileText, MessagesSquare, PartyPopper,
+  Sparkles, GraduationCap, Handshake, TrendingUp, Search, MapPin, Briefcase, ArrowUpRight, Compass, FileText, MessagesSquare, ListChecks, BadgeCheck, ShieldCheck,
 } from 'lucide-react'
 import { img } from '../data/images'
 import { businesses, companyLogos } from '../data/content'
@@ -353,10 +353,10 @@ function GrowthPath() {
    Hiring steps: what to expect after applying.
 ------------------------------------------------------------------------------------------------ */
 const steps = [
-  { icon: Search, t: 'Find a role', d: 'Browse openings across the group and the businesses.' },
-  { icon: FileText, t: 'Apply', d: 'Use the official route listed with the vacancy.' },
-  { icon: MessagesSquare, t: 'Conversations', d: 'Meet the team to talk about the role and about you.' },
-  { icon: PartyPopper, t: 'Welcome aboard', d: 'Join the Sarvaya family and start your journey.' },
+  { icon: FileText, t: 'Apply', d: 'Find a role that fits you and apply through the official route listed with the vacancy.' },
+  { icon: ListChecks, t: 'Review', d: 'Our team reads every application and shortlists the profiles that match the role.' },
+  { icon: MessagesSquare, t: 'Interviews', d: 'Meet HR and the hiring team, with an assessment where the role needs one.' },
+  { icon: BadgeCheck, t: 'Offer and onboarding', d: 'Receive your offer, complete document checks and join the Sarvaya family.' },
 ]
 
 function HiringSteps() {
@@ -369,7 +369,6 @@ function HiringSteps() {
         {steps.map(({ icon: Icon, t, d }, i) => (
           <Reveal key={t} delay={i * 0.06} className="h-full">
             <div className="relative h-full overflow-hidden rounded-[1.75rem] bg-white p-7">
-              <span className="absolute -top-3 right-5 font-display text-7xl font-light text-forest/[0.06]">{i + 1}</span>
               <span className="grid h-12 w-12 place-items-center rounded-full bg-forest text-lime">
                 <Icon size={20} strokeWidth={1.7} />
               </span>
@@ -379,6 +378,18 @@ function HiringSteps() {
           </Reveal>
         ))}
       </div>
+      <Reveal delay={0.1}>
+        <div className="mt-6 flex items-start gap-4 rounded-[1.5rem] border border-forest/15 bg-white/60 p-5 md:items-center md:p-6">
+          <span className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-forest text-lime">
+            <ShieldCheck size={18} strokeWidth={1.7} />
+          </span>
+          <p className="text-sm leading-relaxed text-muted">
+            <span className="font-semibold text-forest">A note on recruitment fraud. </span>
+            Sarvaya Holdings Private Limited never asks for money at any stage of hiring. Offers come only from official
+            company email addresses.
+          </p>
+        </div>
+      </Reveal>
     </div>
   )
 }

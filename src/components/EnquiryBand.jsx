@@ -4,7 +4,6 @@ import { ArrowRight, ArrowUpRight, Building2, Handshake, Briefcase, Mail, Phone 
 import { businesses } from '../data/content'
 import { img } from '../data/images'
 import { Button, Reveal } from './ui'
-import LeafPattern from './LeafPattern'
 
 const routes = [
   { icon: Building2, t: 'Group & corporate', d: 'Questions for Sarvaya Holdings itself.' },
@@ -19,7 +18,6 @@ export default function EnquiryBand() {
       <div className="absolute inset-0 -z-10 bg-gradient-to-br from-forest-950 via-forest-950/95 to-forest/80" />
       <div className="absolute -top-40 right-0 -z-10 h-[34rem] w-[34rem] rounded-full bg-saffron/10 blur-3xl" />
       <div className="absolute -bottom-40 left-1/4 -z-10 h-[26rem] w-[26rem] rounded-full bg-saffron/10 blur-3xl" />
-      <LeafPattern className="pointer-events-none absolute -left-24 bottom-0 -z-10 h-[480px] w-[480px] text-white/[0.03]" />
 
       <div className="container-x grid gap-16 lg:grid-cols-12 lg:gap-20">
         {/* Left: invitation */}

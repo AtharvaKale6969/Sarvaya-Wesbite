@@ -140,12 +140,12 @@ export default function Investors() {
               </p>
             </Reveal>
             <Reveal delay={0.1}>
-              <div className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-4">
+              <div className="mt-10 grid auto-rows-fr grid-cols-2 gap-4 sm:grid-cols-4">
                 {[
                   { n: '04', l: 'Businesses' },
                   { n: '04', l: 'Sectors' },
-                  { n: 'Pvt.', l: 'Privately held' },
-                  { n: 'IN', l: 'Headquartered in India' },
+                  { n: '06', l: 'Shared values' },
+                  { n: '01', l: 'Philanthropic foundation' },
                 ].map((f) => (
                   <div key={f.l} className="rounded-[1.25rem] border border-ink/10 bg-cream p-5">
                     <p className="font-display text-3xl text-forest">{f.n}</p>

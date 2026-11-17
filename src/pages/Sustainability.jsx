@@ -6,7 +6,6 @@ import { img } from '../data/images'
 import { businesses, companyLogos, foundation } from '../data/content'
 import { sectorStories } from '../data/sectors'
 import { Eyebrow, PageHero, Reveal, SectionHeading } from '../components/ui'
-import LeafPattern from '../components/LeafPattern'
 
 const story = sectorStories.philanthropy
 
@@ -41,7 +40,6 @@ function FoundationIntro() {
 
   return (
     <section id="foundation" ref={ref} className="grain relative scroll-mt-16 overflow-hidden bg-forest text-white">
-      <LeafPattern className="pointer-events-none absolute -bottom-32 -left-32 h-[560px] w-[560px] text-white/[0.035]" />
       <div className="pointer-events-none absolute -top-40 right-0 h-[32rem] w-[32rem] rounded-full bg-lime/10 blur-3xl" />
 
       <div className="container-x relative grid gap-16 py-24 md:py-32 lg:grid-cols-12 lg:gap-12">
@@ -331,7 +329,6 @@ function GetInvolved() {
     <section className="py-24 md:py-32">
       <div className="container-x">
         <div className="grain relative overflow-hidden rounded-[2.5rem] bg-forest-950 p-8 text-white md:p-14">
-          <LeafPattern className="pointer-events-none absolute -right-16 -bottom-16 h-80 w-80 text-lime/10" />
           <div className="relative grid gap-12 lg:grid-cols-12">
             <div className="lg:col-span-5">
               <Eyebrow light>Get involved</Eyebrow>
