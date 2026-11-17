@@ -44,12 +44,18 @@ export default function Navbar() {
       className={`fixed inset-x-0 top-0 z-[100] transition-all duration-500 ${
         overHero
           ? 'bg-gradient-to-b from-forest-950/60 to-transparent py-5'
-          : 'border-b border-forest/10 bg-white/90 py-3 shadow-[0_8px_30px_-12px_rgba(10,14,13,0.25)] backdrop-blur-xl'
+          : 'bg-forest-950/[0.94] py-3 shadow-[0_18px_40px_-18px_rgba(0,0,0,0.65)] backdrop-blur-xl'
       }`}
     >
+      {/* Gold hairline: separates the bar from light and dark sections alike */}
+      <span
+        className={`pointer-events-none absolute inset-x-0 bottom-0 h-px bg-lime/60 transition-opacity duration-500 ${
+          overHero ? 'opacity-0' : 'opacity-100'
+        }`}
+      />
       <nav className="container-x flex items-center justify-between gap-6">
         <Link to="/" aria-label="Sarvaya Holdings home" className="shrink-0">
-          <span className={`inline-flex rounded-2xl transition ${overHero ? 'bg-white/95 px-3 py-1.5' : ''}`}>
+          <span className="inline-flex rounded-2xl bg-white/95 px-3 py-1.5 shadow-[0_6px_20px_-10px_rgba(0,0,0,0.5)] transition">
             <Logo compact />
           </span>
         </Link>
@@ -61,13 +67,7 @@ export default function Navbar() {
                 to={l.to}
                 className={({ isActive }) =>
                   `relative rounded-full px-2.5 py-2 text-[0.84rem] font-semibold whitespace-nowrap transition-colors xl:px-3.5 ${
-                    isActive
-                      ? overHero
-                        ? 'text-lime'
-                        : 'text-emerald'
-                      : overHero
-                        ? 'text-white/90 hover:text-white'
-                        : 'text-ink/80 hover:text-forest'
+                    isActive ? 'text-lime' : overHero ? 'text-white/90 hover:text-white' : 'text-white/75 hover:text-white'
                   }`
                 }
               >
@@ -90,7 +90,7 @@ export default function Navbar() {
         <Link
           to="/businesses"
           className={`hidden items-center gap-1.5 rounded-full px-5 py-2.5 text-sm font-semibold whitespace-nowrap transition xl:inline-flex ${
-            overHero ? 'bg-white text-forest hover:bg-lime' : 'bg-forest text-white hover:bg-emerald'
+            overHero ? 'bg-white text-forest hover:bg-lime' : 'bg-lime text-forest-950 hover:bg-white'
           }`}
         >
           Explore the Group <ArrowUpRight size={16} />
@@ -99,7 +99,7 @@ export default function Navbar() {
         <button
           onClick={() => setOpen((o) => !o)}
           className={`grid h-11 w-11 place-items-center rounded-full lg:hidden ${
-            overHero ? 'bg-white/15 text-white backdrop-blur' : 'bg-forest text-white'
+            overHero ? 'bg-white/15 text-white backdrop-blur' : 'bg-white/10 text-white ring-1 ring-lime/40'
           }`}
           aria-label={open ? 'Close menu' : 'Open menu'}
           aria-expanded={open}
@@ -129,7 +129,7 @@ export default function Navbar() {
                     end
                     className={({ isActive }) =>
                       `block rounded-xl px-4 py-3 font-display text-xl ${
-                        isActive ? 'bg-forest text-white' : 'text-forest hover:bg-forest/5'
+                        isActive ? 'bg-white/10 text-lime' : 'text-white/85 hover:bg-white/5 hover:text-white'
                       }`
                     }
                   >
